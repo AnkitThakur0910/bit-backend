@@ -8,6 +8,7 @@ require('dotenv').config();
 // const circularjson = require('circular-json');
 const app = express();
 app.use(cors());
+mongoose.set('strictQuery',true);
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
