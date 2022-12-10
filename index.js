@@ -55,24 +55,24 @@ app.post('/register',async (req,res)=>{
     // res.send(JSON.parse(str));
     // res.end();
   
-//  productsmodels.find({username:req.body.username},async (err,user)=>{
-//    console.log(user)
-//     if(err)
-//     {
-//         throw err;
-//     }
-//     else if(user.length!=0){
-//       console.log(user);
-//         res.status(401).send('invalid usernmae');
-//     }
-//     else{
-//     const data = new productsmodels({username:req.body.username,password:req.body.password});
-//     let ans = await data.save();
-//     console.log(ans);
-//     var token = jwt.sign(req.body.username, process.env.JWT_KEY);
-//     res.status(200).send({token});
+ productsmodels.find({username:req.body.username},async (err,user)=>{
+   console.log(user)
+    if(err)
+    {
+        throw err;
+    }
+    else if(user.length!=0){
+      console.log(user);
+        res.status(401).send('invalid usernmae');
+    }
+    else{
+    const data = new productsmodels({username:req.body.username,password:req.body.password});
+    let ans = await data.save();
+    console.log(ans);
+    var token = jwt.sign(req.body.username, process.env.JWT_KEY);
+    res.status(200).send({token});
     
-//  }});   
+ }});   
 })
 
 app.post('/login',async(req,res)=>{
